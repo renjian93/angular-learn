@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="marketingApp">
+<head>
+
+    <title>App Framework Kitchen Sink</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/icons.css">
+    <link rel="stylesheet" type="text/css" href="css/marketing.css">
+
+    <link rel="stylesheet" type="text/css" href="css/af.ui.css">
+
+
+    <script type="text/javascript" charset="utf-8"
+            src="js/jquery.min.js"></script>
+    <!--<script type="text/javascript" charset="utf-8"-->
+    <!--src="https://rawgit.com/ftlabs/fastclick/master/lib/fastclick.js"></script>-->
+    <!--<script type="text/javascript" charset="utf-8" src="js/af.shim.js"></script>-->
+    <!--<script type="text/javascript" charset="utf-8" src="js/af.ui.js"></script>-->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <script src="js/appframework.ui.js"></script>
+
+
+    <script>
+        $.afui.autoLaunch = false;
+        $(document).ready(function () {
+            $.afui.launch();
+        });
+    </script>
+</head>
+<body>
+<div class="view" id="main-view">
+    <header>
+        <h1>市场信息</h1>
+    </header>
+    <div class="pages">
+        <div class="panel" data-selected="true" ng-controller="marketingListCtrl">
+            <div id="wrapper" class="wrapper">
+                <div id="scroller" class="scroller">
+                    <div id="pullDown">
+                        <span class="pullDownIcon"></span><span class="pullDownLabel">{{pullDownString}}</span>
+                    </div>
+                    <div>
+                        {{data[0].title}}
+                        <img width="200px" height="200px" ng-src="{{data[0].sketchImgUrl}}">
+                    </div>
+                    <ul class="list">
+                        <li ng-repeat="marketing in data">
+                            <a href="">
+                                <span>{{marketing.title}}</span>
+                            <img width="100px" height="100px" ng-src="{{marketing.sketchImgUrl}}">
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="hasShowAll" ng-show="hasShowAllFlag">
+                        <span>已经显示所有</span>
+                    </div>
+                    <div id="pullUp" ng-hide="hasShowAllFlag">
+                        <span class="pullUpIcon"></span><span class="pullUpLabel">{{pullUpString}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
